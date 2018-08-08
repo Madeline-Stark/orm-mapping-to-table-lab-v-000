@@ -37,6 +37,12 @@ class Student
       @id = DB[:conn].execute("SELECT last_insert_rowid() FROM students")[0][0] #grabs id #
 
   end
+
+  def self.create(name:, grade:)
+   students = Student.new(name, grade)
+   students.save
+   students
+ end
   # Remember, you can access your database connection anywhere in this class
   #  with DB[:conn]
 
